@@ -11,7 +11,7 @@ ${SERVER}         localhost:8000
 ${BROWSER}        Firefox
 ${DELAY}          0
 ${HOME PAGE}      http://${SERVER}/
-${LIST PAGE}      http://${SERVER}/todolist/
+${LIST PAGE}      http://${SERVER}/todolist
 
 *** Keywords ***
 Open Home Page
