@@ -10,12 +10,21 @@ Library           OperatingSystem
 Library           DatabaseLibrary
 
 *** Variables ***
+# Common settings
 ${SERVER}             localhost:8000
-${BROWSER}            Firefox
+${BROWSER}            Chrome
 ${DELAY}              0.5
 ${HOME PAGE}          http://${SERVER}/
 ${LIST PAGE}          http://${SERVER}/todolist
 ${TODOLIST ROOT DIR}  /home/tua/Dev/Github/tua-todolist
+
+# Database setting
+${DB HOST}      localhost
+${DB PORT}      5432
+${DB NAME}      todolist
+${DB USER}      postgres
+${DB PASSWD}    ${EMPTY}
+
 
 *** Keywords ***
 Open Home Page
@@ -23,7 +32,7 @@ Open Home Page
 
 Open Specific Todolist
     [Arguments]     ${list id}
-    Open Browser    ${LIST PAGE}/${list id}/
+    Open Browser    ${LIST PAGE}/${list id}/    ${BROWSER}
 
 Input Todolist Item
     [Arguments]     ${item}
@@ -33,7 +42,7 @@ Submit Todolist Item
     Click Button    css:input[type="submit"]
 
 Connect Todolist Database
-    Connect To Database 	psycopg2    todolist    postgres    s3cr3t  localhost   5432
+    Connect To Database 	psycopg2    ${DB NAME}    ${DB USER}    ${DB PASSWD}  ${DB HOST}   ${DB PORT}
 
 Insert fixture data
     Connect Todolist Database
