@@ -3,7 +3,7 @@ Documentation       Test Todolist command line
 Resource            resource.robot
 Test Setup          Clear test data
 Test Teardown       Clear test data
-Library             DatabaseLibrary
+Library             DatabaseLibrary  # view synstax here http://franz-see.github.io/Robotframework-Database-Library/api/1.2.2/DatabaseLibrary.html
 Library             OperatingSystem  # view syntax here http://robotframework.org/robotframework/latest/libraries/OperatingSystem.html
 
 *** Test Cases ***
