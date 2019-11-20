@@ -11,11 +11,15 @@ ${SERVER}         localhost:8000
 ${BROWSER}        Firefox
 ${DELAY}          0
 ${HOME PAGE}      http://${SERVER}/
+${LIST PAGE}      http://${SERVER}/todolist/
 
 *** Keywords ***
-Open Browser To Home Page
+Open Home Page
     Open Browser        ${HOME PAGE}       ${BROWSER}
-    Set Selenium Speed  ${DELAY}
+
+Open Specific Todolist
+    [Arguments]     ${list id}
+    Open Browser    ${LIST PAGE}/${list id}/
 
 Input Todolist Item
     [Arguments]     ${item}
