@@ -1,8 +1,11 @@
 *** Settings ***
-Documentation    Test home page Todolist
-Resource         resource.robot
-Suite Setup      Set Selenium Speed  ${DELAY}
-Suite Teardown   Close Browser
+Documentation   Test home page Todolist
+Resource        resource.robot
+Test Setup      Run Keywords
+...             Clear test data     AND
+...             Set Selenium Speed  ${DELAY}
+Test Teardown   Clear test data
+Suite Teardown  Close Browser
 
 *** Test Cases ***
 Create New Todolist From Home Page

@@ -1,8 +1,12 @@
 *** Settings ***
-Documentation    Test todolist function
-Resource         resource.robot
-Suite Setup      Set Selenium Speed  ${DELAY}
-Suite Teardown   Close Browser
+Documentation   Test todolist function
+Resource        resource.robot
+Test Setup      Run Keywords
+...             Clear test data         AND
+...             Insert fixture data     AND
+...             Set Selenium Speed      ${DELAY}
+Test Teardown   Clear test data
+Suite Teardown  Close Browser
 
 *** Test Cases ***
 Open todolist to add items
