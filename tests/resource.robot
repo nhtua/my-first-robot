@@ -32,10 +32,13 @@ Input Todolist Item
 Submit Todolist Item
     Click Button    css:input[type="submit"]
 
-Insert fixture data
+Connect Todolist Database
     Connect To Database 	psycopg2    todolist    postgres    s3cr3t  localhost   5432
-    Execute Sql Script 	    ${EXECDIR}/fixtures/init-first-todolist.sql
 
+Insert fixture data
+    Connect Todolist Database
+    Execute Sql Script 	    ${EXECDIR}/fixtures/init-first-todolist.sql
+    Disconnect from Database
 
 Clear test data
     Run             cd ${TODOLIST ROOT DIR} && pipenv run python manage.py flush --noinput
